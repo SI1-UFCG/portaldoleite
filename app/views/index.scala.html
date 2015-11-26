@@ -57,7 +57,7 @@
             			<p>Escolha uma disciplina ou tema ao lado para acessar os leites.</p>
             		</div>
             		<div>
-            					<div class="uk-button-dropdown uk-align-right" data-uk-dropdown="{mode:'click'}">
+            					<div class="uk-button-dropdown" data-uk-dropdown="{mode:'click'}">
             						<button class="uk-button uk-button-primary uk-button uk-align-right"><i class="uk-icon-plus"></i> Ordenar
             						<i class="uk-icon-caret-down"></i>
             						</button>
@@ -80,6 +80,10 @@
 							}
 	            			@for(dica <- dicas){
 	            			<div class="uk-panel uk-panel-box dica" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
+
+	            				<p>@dica.getTema().getDisciplina().getNome()</p>
+	            				<p>Tema: @dica.getTema().getName()</p>
+
 	            				@if(!dica.wasFlaggedByUser(session.get("login"))){
 	            					<form name="formDenunciar@dica.getId()" method="post" action="/denunciarDica/@dica.getId()"></form>
 	            					<a data-uk-tooltip title="Denunciar dica" 

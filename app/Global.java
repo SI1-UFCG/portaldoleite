@@ -50,26 +50,49 @@ public class Global extends GlobalSettings {
 	
 	private void criaDisciplinaTemas(){
 		Disciplina si1 = new Disciplina("Sistemas de Informação 1");
-		si1.addTema(new Tema("Análise x Design"));
-		si1.addTema(new Tema("Orientação a objetos"));
-		si1.addTema(new Tema("GRASP"));
-		si1.addTema(new Tema("GoF"));
-		si1.addTema(new Tema("Arquitetura"));
-		si1.addTema(new Tema("Play"));
-		si1.addTema(new Tema("JavaScript"));
-		si1.addTema(new Tema("HTML / CSS / Bootstrap"));
-		si1.addTema(new Tema("Heroku"));
-		si1.addTema(new Tema("Labs"));
-		si1.addTema(new Tema("Minitestes"));
-		si1.addTema(new Tema("Projeto"));
+		
+		Tema t1 = new Tema("Análise x Design");
+		t1.setDisciplina(si1);
+		Tema t2 = new Tema("Orientação a objetos");
+		t2.setDisciplina(si1);
+		Tema t3 = new Tema("GRASP");
+		t3.setDisciplina(si1);
+		Tema t4 = (new Tema("GoF"));
+		t4.setDisciplina(si1);
+		Tema t5 = (new Tema("Arquitetura"));
+		t5.setDisciplina(si1);
+		Tema t6 = (new Tema("Play"));
+		t6.setDisciplina(si1);
+		Tema t7 = (new Tema("JavaScript"));
+		t7.setDisciplina(si1);
+		Tema t9 = (new Tema("HTML / CSS / Bootstrap"));
+		t9.setDisciplina(si1);
+		Tema t10 = (new Tema("Heroku"));
+		t10.setDisciplina(si1);
+		Tema t11 = (new Tema("Labs"));
+		t11.setDisciplina(si1);
+		Tema t12 = (new Tema("Minitestes"));
+		t12.setDisciplina(si1);
+		Tema t13 = (new Tema("Projeto"));
+		t13.setDisciplina(si1);
+		
+		si1.addTema(t1);si1.addTema(t2);si1.addTema(t3);si1.addTema(t4);si1.addTema(t5);si1.addTema(t6);si1.addTema(t7);si1.addTema(t9);si1.addTema(t10);si1.addTema(t11);si1.addTema(t12);si1.addTema(t13);	
 		
 		Disciplina es = new Disciplina("Engenharia de Software");
-		es.addTema(new Tema("Requisitos de Software"));
-		es.addTema(new Tema("Qualidade de Software"));
+		Tema t14 = (new Tema("Requisitos de Software"));
+		t14.setDisciplina(es);
+		Tema t15 = (new Tema("Qualidade de Software"));
+		t15.setDisciplina(es);
+		es.addTema(t14);
+		es.addTema(t15);
 		
 		Disciplina ad1 = new Disciplina("Análise de Dados 1");
-		ad1.addTema(new Tema("Estatística"));
-		ad1.addTema(new Tema("RStudio"));
+		Tema t16 = (new Tema("Estatística"));
+		t16.setDisciplina(ad1);
+		Tema t17 = (new Tema("RStudio"));
+		t17.setDisciplina(ad1);
+		ad1.addTema(t16);
+		ad1.addTema(t17);
 		
 		dao.persist(si1);
 		dao.persist(es);
