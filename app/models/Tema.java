@@ -110,41 +110,56 @@ public class Tema {
 		return usersDifficulty;
 	}
 
-	public String getMediana() {
-		List<String> difficultyVotes = new ArrayList<String>(this.usersDifficulty.values());
-		
-		Collections.sort(difficultyVotes);
+	private String calculaMediana(List<String> difficultyVotes){
+
 		int totalVotes = difficultyVotes.size();
 		if (totalVotes == 0) {
 			return "0";
 		}
 		else if (totalVotes % 2 == 1) {
 			String mediana = difficultyVotes.get(totalVotes/2);
-			
+
 			return mediana;
 		}
 		else {
 			String primeiraMediana = difficultyVotes.get(totalVotes/2);
 			String segundaMediana = difficultyVotes.get((totalVotes/2)-1);
-			
+
 			return String.format("%.2f", (Integer.parseInt(primeiraMediana) + Integer.parseInt(segundaMediana))/2.0);
 		}
+	}
+
+	public String getMediana() {
+		List<String> difficultyVotes = new ArrayList<String>(this.usersDifficulty.values());
+		
+		Collections.sort(difficultyVotes);
+
+		return calculaMediana(difficultyVotes);
+
+	}
+
+	private String calculaMedia(List<String> difficultyVotes ){
+
+		int totalVotes = difficultyVotes.size();
+		if(totalVotes == 0){
+			return "0";
+		}
+
+		double votesCount = 0;
+
+		for (String vote : difficultyVotes) {
+			votesCount = votesCount + Double.parseDouble(vote);
+		}
+
+		return String.format("%.2f", votesCount/totalVotes);
+
 	}
 	
 	public String getMedia() {
 		List<String> difficultyVotes = new ArrayList<String>(this.usersDifficulty.values());
 		
-		int totalVotes = difficultyVotes.size();
-		if(totalVotes == 0){
-			return "0";
-		}
-		
-		double votesCount = 0;
-		
-		for (String vote : difficultyVotes) {
-			votesCount = votesCount + Double.parseDouble(vote);
-		}
-		
-		return String.format("%.2f", votesCount/totalVotes);
+		return calculaMedia(difficultyVotes);
 	}
+	
+	
 }
