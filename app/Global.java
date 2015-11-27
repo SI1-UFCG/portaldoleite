@@ -27,6 +27,10 @@ public class Global extends GlobalSettings {
 		JPA.withTransaction(new play.libs.F.Callback0() {
 			@Override
 			public void invoke() throws Throwable {
+				if (dao.findAllByClassName(User.class.getName()).size() == 0) {
+					criaUsuarios();
+				}
+				
 				if(dao.findAllByClassName(Disciplina.class.getName()).size() == 0){
 					criaDisciplinaTemas();
 				}
@@ -98,38 +102,6 @@ public class Global extends GlobalSettings {
 		dao.persist(es);
 		dao.persist(ad1);
 		
-		// insere usuários
-		User user1 = new User("user1@email.com", "123", "user1");
-		user1.setNome("user1");
-		User user2 = new User("user2@email.com", "123", "user2");
-		user2.setNome("user2");
-		User user3 = new User("user3@email.com", "123", "user3");
-		user3.setNome("user3");
-		User user4 = new User("user4@email.com", "123", "user4");
-		user4.setNome("user4");
-		User user5 = new User("user5@email.com", "123", "user5");
-		user5.setNome("user5");
-		User user6 = new User("user6@email.com", "123", "user6");
-		user6.setNome("user6");
-		User user7 = new User("user7@email.com", "123", "user7");
-		user7.setNome("user7");
-		User user8 = new User("user8@email.com", "123", "user8");
-		user8.setNome("user8");
-		User user9 = new User("user9@email.com", "123", "user9");
-		user1.setNome("user9");
-		User user10 = new User("user10@email.com", "123", "user10");
-		user10.setNome("user10");
-		
-    	dao.persist(user1);
-    	dao.persist(user2);
-    	dao.persist(user3);
-    	dao.persist(user4);
-    	dao.persist(user5);
-    	dao.persist(user6);
-    	dao.persist(user7);
-    	dao.persist(user8);
-    	dao.persist(user9);
-    	dao.persist(user10);
     	
     	// insere as dicas
     	DicaMaterial dica1 = new DicaMaterial("https://sites.google.com/site/prog2ufcg/p2/programa");
@@ -176,5 +148,41 @@ public class Global extends GlobalSettings {
 		dao.persist(dica5);	
 		
 		dao.flush();
+	}
+	
+	public void criaUsuarios(){
+		User user1 = new User("user1@email.com", "123", "user1");
+		user1.setNome("user1");
+		User user2 = new User("user2@email.com", "123", "user2");
+		user2.setNome("user2");
+		User user3 = new User("user3@email.com", "123", "user3");
+		user3.setNome("user3");
+		User user4 = new User("user4@email.com", "123", "user4");
+		user4.setNome("user4");
+		User user5 = new User("user5@email.com", "123", "user5");
+		user5.setNome("user5");
+		User user6 = new User("user6@email.com", "123", "user6");
+		user6.setNome("user6");
+		User user7 = new User("user7@email.com", "123", "user7");
+		user7.setNome("user7");
+		User user8 = new User("user8@email.com", "123", "user8");
+		user8.setNome("user8");
+		User user9 = new User("user9@email.com", "123", "user9");
+		user1.setNome("user9");
+		User user10 = new User("user10@email.com", "123", "user10");
+		user10.setNome("user10");
+		
+    	dao.persist(user1);
+    	dao.persist(user2);
+    	dao.persist(user3);
+    	dao.persist(user4);
+    	dao.persist(user5);
+    	dao.persist(user6);
+    	dao.persist(user7);
+    	dao.persist(user8);
+    	dao.persist(user9);
+    	dao.persist(user10);
+    	dao.flush();
+		
 	}
 }

@@ -117,6 +117,10 @@ public class MetaDica implements Comparable<MetaDica>{
 	}
 	
 	public String getIndiceConcordancia() {
+		return calculaIndiceConcordancia();
+	}
+	
+	private String calculaIndiceConcordancia() {
 		int soma = concordancias + discordancias;
 		if(soma == 0){
 			return "0";

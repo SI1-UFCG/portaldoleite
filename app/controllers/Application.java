@@ -148,6 +148,18 @@ public class Application extends Controller {
 		Dica.setSortTip(sort);
 		return redirect(routes.Application.tema(idTema));
 	}
+	
+//	private static void carregaInformacoesDicas(Tema tema,Dica dica){
+//		String userName = session("username");
+//		tema.addDica(dica);
+//		dica.setTema(tema);
+//		dica.setUser(userName);
+//		dica.setCreatedAt(date.toDate());
+//		dao.persist(dica);
+//	}
+	
+	
+	
 
 	@Transactional
 	@Security.Authenticated(Secured.class)
